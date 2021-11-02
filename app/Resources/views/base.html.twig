@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html class="{{ app.request.attributes.get('_route') == 'geopositioningservices.com' or app.request.attributes.get('_route') == 'www.geopositioningservices.com' ? 'scheme-blue' : 'scheme-red' }}">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <title>{% block title %}{% trans %}Geosignal{% endtrans %}{% endblock %}</title>
+        <meta property="og:site_name" content="" />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="" />
+
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block analytics %}
+
+            <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TX6PCJ"
+                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({'gtm.start':
+                            new Date().getTime(), event: 'gtm.js'});
+                var f = d.getElementsByTagName(s)[0],
+                        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src =
+                        '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-TX6PCJ');</script>
+        <!-- End Google Tag Manager -->
+
+    {% endblock %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"26061699"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+
+
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body class="{{ app.request.attributes.get('_route') }}">
+    {% block content %}
+    {% endblock %}
+    <script type="text/javascript">
+    var conekta_public_key = "{{ conekta_api_public_key }}";
+</script>
+    {% block javascripts %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,103 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    {% stylesheets
+    "https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700"
+    "bundles/geosignalweb/bootstrap/css/bootstrap.css"
+    "bundles/geosignalweb/zetter/css/zetter.css"
+    "bundles/geosignalweb/bxslider/jquery.bxslider.css"
+    "bundles/geosignalweb/fancybox/jquery.fancybox.css"
+    "bundles/geosignalweb/css/style.css"
+    "bundles/geosignalweb/css/mediaqueries.css"
+    filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/css/ol.css" type="text/css">
+
+    <style>
+      .map {
+        height: 400px;
+        width: 100%;
+        z-index: -1; 
+      }
+    </style>
+
+
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+    {% endstylesheets %}
+{% endblock %}
+{% block content %}
+  {% block header %}
+    {% include 'GeosignalWebBundle:Default:header.html.twig' %}
+ {% endblock %}
+    {% block body %}
+    {% endblock %}
+
+
+    <div class="bg-lock"></div>
+    {% block footer %}
+        {% include 'GeosignalWebBundle:Default:footer.html.twig' %}
+    {% endblock %}
+    {% block remarketing %}
+
+    {% endblock %}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        var locale_path = "{{app.request.locale|slice(0, 2)}}";
+    </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCixPtKsC9qK0F45BYhdIX83Z4PAI1SzAU&libraries=geometry"></script>
+     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.2.1/build/ol.js"></script>
+
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js"></script>
+
+    <!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '602522430641885');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=602522430641885&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+    
+    
+    
+    
+    {% javascripts
+    "@GeosignalWebBundle/Resources/public/js/jquery-1.11.3.min.js"
+    "@GeosignalWebBundle/Resources/public/js/jquery.cookie.js"
+    "@GeosignalWebBundle/Resources/public/bootstrap/js/bootstrap.min.js"
+    "@GeosignalWebBundle/Resources/public/bxslider/jquery.bxslider.min.js"
+    "@GeosignalWebBundle/Resources/public/fancybox/jquery.fancybox.pack.js"
+    "@GeosignalWebBundle/Resources/public/fancybox/helpers/jquery.fancybox-thumbs.js"
+    "@GeosignalWebBundle/Resources/public/js/bowser.min.js"
+    "@GeosignalWebBundle/Resources/public/validate/jquery.validate.min.js"
+    "@GeosignalWebBundle/Resources/public/validate/additional-methods.min.js"
+    "@GeosignalWebBundle/Resources/public/js/jquery-ui.js"
+    "@GeosignalWebBundle/Resources/public/js/main.js"
+    %}
+    <script src="{{ asset_url }}"></script>
+
+    {% endjavascripts %}
+    <!--[if lt IE 9]>
+          <script src="html5shiv/html5shiv.min.js"></script>
+          <script src="respond/respond.min.js"></script>
+    <![endif]-->
+{% endblock %}
