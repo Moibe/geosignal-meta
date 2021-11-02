@@ -2,6 +2,6 @@
 !app/cache/.gitkeep
 /app/logs/*
 !app/logs/.gitkeep
-/vendor/
 !*/vendor/autoload.php
+/vendor/
 /tmp/sessions/*
